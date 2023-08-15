@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import React, { Component } from 'react'
+import Question from './Question';
 
 export default class Quiz extends Component {
 
@@ -11,10 +12,10 @@ export default class Quiz extends Component {
                 {
                     questionTitle: 'What is the capital of Iran?',
                     answerOption: [
-                        { answerText: 'Dubi', isCorrect: false},
-                        { answerText: 'Tehran', isCorrect: true},
-                        { answerText: 'Istanbol', isCorrect: false},
-                        { answerText: 'Cabul', isCorrect: false},
+                        {id: 1, answerText: 'Dubi', isCorrect: false},
+                        {id: 2, answerText: 'Tehran', isCorrect: true},
+                        {id: 3, answerText: 'Istanbol', isCorrect: false},
+                        {id: 4, answerText: 'Cabul', isCorrect: false},
                     ]
                 },
             ]
@@ -28,10 +29,11 @@ export default class Quiz extends Component {
     return (
       <main className={clsx(
         "flex justify-center items-center flex-col",
-        "min-h-screen"
+        "min-h-screen",
+        "bg-blue-400"
       )}>
         <h1 className={clsx(
-
+            "text-3xl text-gray-600 font-bold"
         )}>
             {this.state.question[0].questionTitle}
         </h1>
@@ -40,46 +42,9 @@ export default class Quiz extends Component {
             "mt-14",
             "w-96"
         )}>
-            <li className={clsx(
-                "px-10 py-2",
-                "border-2",
-                "w-full",
-                "m-1.5",
-                "text-center text-2xl",
-                "text-blue-300 bg-blue-900",
-                "rounded-full",
-                "font-bold"
-            )}>{this.state.question[0].answerOption[0].answerText}</li>
-            <li className={clsx(
-                "px-10 py-2",
-                "border-2",
-                "w-full",
-                "m-1.5",
-                "text-center text-2xl",
-                "text-blue-300 bg-blue-900",
-                "rounded-full",
-                "font-bold"
-            )}>{this.state.question[0].answerOption[1].answerText}</li>
-            <li className={clsx(
-                "px-10 py-2",
-                "border-2",
-                "w-full",
-                "m-1.5",
-                "text-center text-2xl",
-                "text-blue-300 bg-blue-900",
-                "rounded-full",
-                "font-bold"
-            )}>{this.state.question[0].answerOption[2].answerText}</li>
-            <li className={clsx(
-                "px-10 py-2",
-                "border-2",
-                "w-full",
-                "m-1.5",
-                "text-center text-2xl",
-                "text-blue-300 bg-blue-900",
-                "rounded-full",
-                "font-bold"
-            )}>{this.state.question[0].answerOption[3].answerText}</li>
+            {this.state.question[0].answerOption.map((index) => 
+                <Question key={index.id} option={index.answerText}/>
+            )}
         </ul>
       </main>
     )
