@@ -13,7 +13,8 @@ class Form extends React.Component {
             FirstNameValue: '',
             LastNameValue: '',
             EmailValue: '',
-            submited: false
+            submited: false,
+            allValid: false
         }
 
         this.submitHandler = this.submitHandler.bind(this)
@@ -46,6 +47,22 @@ class Form extends React.Component {
         this.setState({
             submited: true
         })
+
+        if (
+          this.state.FirstNameValue.length !== 0 &&
+          this.state.LastNameValue.length !== 0 &&
+          this.state.EmailValue.length !== 0
+        ) {
+            this.setState({
+              allValid: true
+            })
+
+            setTimeout(() => {
+              this.setState({
+                allValid: false
+              })
+            }, 4000);
+        }
     }
 
   render(){
@@ -60,6 +77,13 @@ class Form extends React.Component {
               padding: "",
               background: "#aaa"
             }}>
+              {this.state.submited && this.state.allValid && (
+                <div style={{
+                  padding: "10px",
+                  background: 'green'
+                }}>Success! Thank you for registering</div>
+              )}
+
             <FirstName 
                 value={this.state.FirstNameValue}
                 onChange={this.FirstNamevalidation}
