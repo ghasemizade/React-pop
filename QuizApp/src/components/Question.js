@@ -12,9 +12,10 @@ export default function Question({option}) {
         "text-center text-2xl",
         "text-blue-300 bg-blue-900",
         "rounded-full",
-        "font-bold"
+        "font-bold",
+        "cursor-pointer",
+        "hover:bg-orange-400 duration-100",
+        "hover:text-blue-900"
     )}>{option}</li>
   )
 }
-
-// this.state.question[0].answerOption[0].answerText
