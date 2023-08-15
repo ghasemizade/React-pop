@@ -10,6 +10,7 @@ export default class Quiz extends Component {
         this.state = {
             qOption: '',
             currentQuestion: 0,
+            score: 0,
             question: [
                 {
                     questionTitle: 'What is the capital of Iran?',
@@ -56,7 +57,7 @@ export default class Quiz extends Component {
         this.setState((prevState) => {
             if (prevState.currentQuestion < 3) {
                 return {
-                    currentQuestion: prevState.currentQuestion + 1
+                    currentQuestion: prevState.currentQuestion + 1,
                 }
             } else {
                 return {
@@ -67,7 +68,7 @@ export default class Quiz extends Component {
     }
     
     render() {
-        console.log(this.state.currentQuestion);
+        console.log(this.state.score);
     return (
       <main className={clsx(
         "flex justify-center items-center flex-col",
