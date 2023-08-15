@@ -2,7 +2,6 @@ import React from 'react';
 import FirstName from './FirstName';
 import LastName from './LastName';
 import Email from './Email';
-import Submit from './Submit';
 
 
 class Form extends React.Component {
@@ -59,21 +58,39 @@ class Form extends React.Component {
               minHeight: "100vh",
               flexDirection: "column",
               padding: "",
-              background: "#1177ff"
+              background: "#aaa"
             }}>
             <FirstName 
                 value={this.state.FirstNameValue}
                 onChange={this.FirstNamevalidation}
             />
+            {this.state.submited && this.state.FirstNameValue.length === 0 && (
+              <span style={{color: "red", fontWeight: "bold"}}>FirstName is Empty</span>
+            )}
+
             <LastName
               value={this.state.LastNameValue}
               onChange={this.LastNamevalidation}
             />
+            {this.state.submited && this.state.LastNameValue.length === 0 && (
+              <span style={{color: "red", fontWeight: "bold"}}>LastName is Empty</span>
+            )}
+
             <Email 
               value={this.state.EmailValue}
               onChange={this.Emailvalidation}
             />
-            <Submit/>
+            {/* submit */}
+            {this.state.submited && this.state.EmailValue.length === 0 && (
+              <span style={{color: "red", fontWeight: "bold"}}>Email is Empty</span>
+            )}
+            <button type="submit" placeholder="firstname" value='submit' style={{
+            margin: "20px",
+            padding: "10px",
+            background: "#eee",
+            borderRadius: "2px"
+            }}>Submit</button>
+
             </form>
           </>
         );
