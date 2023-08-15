@@ -19,6 +19,8 @@ class Form extends React.Component {
 
         this.submitHandler = this.submitHandler.bind(this)
         this.FirstNamevalidation = this.FirstNamevalidation.bind(this)
+        this.LastNamevalidation = this.LastNamevalidation.bind(this)
+        this.Emailvalidation = this.Emailvalidation.bind(this)
     }
     
     FirstNamevalidation (event){
@@ -68,7 +70,8 @@ class Form extends React.Component {
               onChange={this.LastNamevalidation}
             />
             <Email 
-              
+              value={this.state.EmailValue}
+              onChange={this.Emailvalidation}
             />
             <Submit/>
             </form>
