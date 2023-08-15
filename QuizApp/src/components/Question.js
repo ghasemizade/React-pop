@@ -2,7 +2,7 @@ import React from 'react'
 import clsx from 'clsx';
 
 
-export default function Question({option}) {
+export default function Question({option, click}) {
   return (
     <li className={clsx(
         "px-10 py-2",
@@ -16,6 +16,6 @@ export default function Question({option}) {
         "cursor-pointer",
         "hover:bg-orange-400 duration-100",
         "hover:text-blue-900"
-    )}>{option}</li>
+    )} onClick={click}>{option}</li>
   )
 }
