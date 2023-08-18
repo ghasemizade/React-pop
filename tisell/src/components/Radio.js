@@ -10,14 +10,17 @@ export default function Radio() {
                 "px-5"
             )}>
                 <span className={clsx(
-                    "mr-5"
+                    "mr-5",
+                    "flex justify-center items-center"
                 )}>
                     <input type="radio" name="set" id="Round Trip"/>
                     <label className={clsx(
                         "ml-2"
                     )} htmlFor="Round Trip">Round Trip</label>
                 </span>
-                <span>
+                <span className={clsx(
+                    "flex justify-center items-center"
+                )}>
                     <input type="radio" name="set" id="One Way" />
                     <label className={clsx(
                         "ml-2"
