@@ -3,10 +3,9 @@ import React, { Component } from 'react'
 import Question from './Question';
 
 export default class Quiz extends Component {
-
     constructor(props) {
         super(props);
-
+        
         this.state = {
             qOption: '',
             currentQuestion: 0,
@@ -42,7 +41,7 @@ export default class Quiz extends Component {
                 {
                     questionTitle: 'What is the capital of Iran?',
                     answerOption: [
-                        {id: 1, answerText: 'Dubi', isCorrect: false},
+                        {id: 1, answerText: 'Babol', isCorrect: false},
                         {id: 2, answerText: 'Tehran', isCorrect: true},
                         {id: 3, answerText: 'Istanbol', isCorrect: false},
                         {id: 4, answerText: 'Cabul', isCorrect: false},
@@ -60,11 +59,15 @@ export default class Quiz extends Component {
                     currentQuestion: prevState.currentQuestion + 1,
                 }
             } else {
-                return {
-                    currentQuestion: 0
-                }
+                return (
+                    <h1>Hosein</h1>
+                )
             }
         }) 
+    }
+
+    handleClick() {
+        
     }
     
     render() {
