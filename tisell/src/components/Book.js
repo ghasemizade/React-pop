@@ -8,9 +8,10 @@ export default function Book() {
     return(
         <main className={clsx(
             "flex justify-center items-center flex-col",
-            "bg-[#fff]",
+            "bg-[#30303036]",
             "w-96 h-96",
-            "rounded"
+            "rounded",
+            "backdrop-blur"
         )}>
             <Radio />
             <Input placeholder={'Leaving from...'} label={"leave"}/>
@@ -19,13 +20,13 @@ export default function Book() {
                 "flex justify-center items-center",
                 "px-5"
             )}>
-                <Input placeholder={'First name'} />
+                <Input placeholder={'First name'} label={"firstname"}/>
 
                 <gap className={clsx(
                     "mx-0.5"
                 )}></gap>
-                
-                <Input placeholder={'Last name'} />
+
+                <Input placeholder={'Last name'} label={"lastname"}/>
             </div>
         </main>
     )
