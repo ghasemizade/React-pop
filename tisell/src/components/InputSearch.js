@@ -2,6 +2,8 @@ import clsx from 'clsx'
 import { useRef } from 'react'
 
 export default function InputSearch({placeholder, label, icon, type}) {
+
+
     const ref = useRef(null)
     const addClass = () =>{
         const section = ref.current
