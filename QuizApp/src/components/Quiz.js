@@ -10,6 +10,7 @@ export default class Quiz extends Component {
             qOption: '',
             currentQuestion: 0,
             score: 0,
+            showScore: false,
             question: [
                 {
                     questionTitle: 'What is the capital of Iran?',
@@ -39,10 +40,10 @@ export default class Quiz extends Component {
                     ]
                 },
                 {
-                    questionTitle: 'What is the capital of Iran?',
+                    questionTitle: 'What is the capital of Iraq?',
                     answerOption: [
                         {id: 1, answerText: 'Babol', isCorrect: false},
-                        {id: 2, answerText: 'Tehran', isCorrect: true},
+                        {id: 2, answerText: 'Baghdad', isCorrect: true},
                         {id: 3, answerText: 'Istanbol', isCorrect: false},
                         {id: 4, answerText: 'Cabul', isCorrect: false},
                     ]
@@ -53,18 +54,25 @@ export default class Quiz extends Component {
     }
     
     onClickHandler(isCorrect){
-        // this.setState((prevState) => {
-        //     if (prevState.currentQuestion < 3) {
-        //         return {
-        //             currentQuestion: prevState.currentQuestion + 1,
-        //         }
-        //     } else {
-        //         return (
-        //             <h1>Hosein</h1>
-        //         )
-        //     }
-        // }) 
-        console.log(isCorrect);
+        if (isCorrect) {
+            this.setState(prevState => {
+                return {
+                    score: prevState.score + 1
+                }
+            })
+        }
+
+        if (this.state.currentQuestion === 3) {
+            this.setState({
+                showScore: true
+            })
+        } else {
+            this.setState(prevState => {
+                return {
+                    currentQuestion: prevState.currentQuestion + 1
+                }
+            })
+        }
     }
 
     scoreHandler() {
@@ -72,31 +80,34 @@ export default class Quiz extends Component {
     }
     
     render() {
-        console.log(this.state.score);
     return (
       <main className={clsx(
         "flex justify-center items-center flex-col",
         "min-h-screen",
         "bg-blue-400"
       )}>
-        <h1 className={clsx(
-            "text-3xl text-gray-600 font-bold"
-        )}>
-            {this.state.question[this.state.currentQuestion].questionTitle}
-        </h1>
-        <ul className={clsx(
-            "flex justify-center items-center flex-col",
-            "mt-14",
-            "w-96"
-        )}>
-            {this.state.question[this.state.currentQuestion].answerOption.map((index) => 
-                <Question
-                    key={index.id} 
-                    option={index.answerText}
-                    click={this.onClickHandler.bind(this, index.isCorrect)}
-                />
-            )}
-        </ul>
+        {this.state.showScore ? (<div>You scored {this.state.score} out of 4</div>) : (
+            <>
+                <h1 className={clsx(
+                    "text-3xl text-gray-600 font-bold"
+                )}>
+                    {this.state.question[this.state.currentQuestion].questionTitle}
+                </h1>
+                <ul className={clsx(
+                    "flex justify-center items-center flex-col",
+                    "mt-14",
+                    "w-96"
+                )}>
+                    {this.state.question[this.state.currentQuestion].answerOption.map((index) => 
+                        <Question
+                            key={index.id} 
+                            option={index.answerText}
+                            click={this.onClickHandler.bind(this, index.isCorrect)}
+                        />
+                    )}
+                </ul>
+            </>
+        )}
       </main>
     )
   }
