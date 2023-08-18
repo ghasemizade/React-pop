@@ -5,12 +5,12 @@ export default function InputSearch({placeholder, label, icon}) {
     const ref = useRef(null)
     const addClass = () =>{
         const section = ref.current
-        section.classList.add("border-black")  
+        section.classList.add("border-blue-600")  
     }
 
     const removeClass = () =>{
         const section = ref.current
-        section.classList.remove("border-black")
+        section.classList.remove("border-blue-600")
     }
 
     return(
