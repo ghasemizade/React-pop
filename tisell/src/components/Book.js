@@ -38,9 +38,10 @@ export default function Book() {
                     icon={"./name.png"}
                     type={"text"}/>
 
-                <gap className={clsx(
+                <div className={clsx(
+                    "gap",
                     "mx-0.5"
-                )}></gap>
+                )}></div>
 
                 <Input 
                     placeholder={'Last name'}
@@ -56,7 +57,7 @@ export default function Book() {
                     placeholder={'Depart'}
                     label={"depart"}
                     icon={"./calender.png"}
-                    type={"date"}/>
+                    type={"text"}/>
 
                 <gap className={clsx(
                     "mx-0.5"
@@ -66,7 +67,7 @@ export default function Book() {
                     placeholder={'Return'}
                     label={"return"}
                     icon={"./calender.png"}
-                    type={"date"}/>
+                    type={"text"}/>
             </div>
         </main>
         <footer>
