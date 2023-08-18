@@ -1,16 +1,16 @@
 import clsx from 'clsx'
 import { useRef } from 'react'
 
-export default function InputSearch({placeholder}) {
+export default function InputSearch({placeholder, label}) {
     const ref = useRef(null)
     const addClass = () =>{
         const section = ref.current
-        section.classList.add("border-blue-500")  
+        section.classList.add("border-black")  
     }
 
     const removeClass = () =>{
         const section = ref.current
-        section.classList.remove("border-blue-500")
+        section.classList.remove("border-black")
     }
 
     return(
@@ -25,7 +25,7 @@ export default function InputSearch({placeholder}) {
                 "border-2",
                 "duration-100"
             )} onFocus={addClass} onBlur={removeClass} ref={ref}>
-                <label htmlFor="location">
+                <label htmlFor={label}>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className={clsx(
                         "w-8 h-8 mx-3 text-gray-500"
                     )} fill="currentColor">
@@ -37,7 +37,7 @@ export default function InputSearch({placeholder}) {
                     "w-full",
                     "py-3.5",
                     "outline-none"
-                )} type="text" placeholder={placeholder} id="location"/>
+                )} type="text" placeholder={placeholder} id={label}/>
             </section>
         </>
     )

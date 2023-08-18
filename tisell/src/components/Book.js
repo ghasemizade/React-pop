@@ -13,8 +13,20 @@ export default function Book() {
             "rounded"
         )}>
             <Radio />
-            <Input placeholder={'Leaving from...'}/>
-            <Input placeholder={'Going to...'}/>
+            <Input placeholder={'Leaving from...'} label={"leave"}/>
+            <Input placeholder={'Going to...'} label={"go"}/>
+            <div className={clsx(
+                "flex justify-center items-center",
+                "px-5"
+            )}>
+                <Input placeholder={'First name'} />
+
+                <gap className={clsx(
+                    "mx-0.5"
+                )}></gap>
+                
+                <Input placeholder={'Last name'} />
+            </div>
         </main>
     )
 }
