@@ -21,19 +21,22 @@ export default function Book() {
             <Input 
                 placeholder={'Leaving from...'} 
                 label={"leave"}
-                icon={"./location.png"}/>
+                icon={"./location.png"}
+                type={"text"}/>
             <Input 
                 placeholder={'Going to...'}
                 label={"go"}
-                icon={"./location.png"}/>
+                icon={"./location.png"}
+                type={"text"}/>
             <div className={clsx(
                 "flex justify-center items-center",
-                "px-5"
+                "px-4"
             )}>
                 <Input 
                     placeholder={'First name'}
                     label={"firstname"}
-                    icon={"./name.png"}/>
+                    icon={"./name.png"}
+                    type={"text"}/>
 
                 <gap className={clsx(
                     "mx-0.5"
@@ -42,7 +45,28 @@ export default function Book() {
                 <Input 
                     placeholder={'Last name'}
                     label={"lastname"}
-                    icon={"./name.png"}/>
+                    icon={"./name.png"}
+                    type={"text"}/>
+            </div>
+            <div className={clsx(
+                "flex justify-center items-center",
+                "px-4"
+            )}>
+                <Input 
+                    placeholder={'Depart'}
+                    label={"depart"}
+                    icon={"./calender.png"}
+                    type={"date"}/>
+
+                <gap className={clsx(
+                    "mx-0.5"
+                )}></gap>
+
+                <Input 
+                    placeholder={'Return'}
+                    label={"return"}
+                    icon={"./calender.png"}
+                    type={"date"}/>
             </div>
         </main>
         <footer>
