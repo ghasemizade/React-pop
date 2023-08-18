@@ -8,6 +8,11 @@ export default function InputSearch({placeholder}) {
         section.classList.add("border-blue-500")  
     }
 
+    const removeClass = () =>{
+        const section = ref.current
+        section.classList.remove("border-blue-500")
+    }
+
     return(
         <>
             <section className={clsx(
@@ -19,7 +24,7 @@ export default function InputSearch({placeholder}) {
                 "mt-5",
                 "border-2",
                 "duration-100"
-            )} onClick={addClass} ref={ref}>
+            )} onFocus={addClass} onBlur={removeClass} ref={ref}>
                 <label htmlFor="location">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className={clsx(
                         "w-8 h-8 mx-3 text-gray-500"
