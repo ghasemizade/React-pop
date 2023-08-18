@@ -49,24 +49,25 @@ export default class Quiz extends Component {
                 },
             ]
         }
-        this.onClickHandler =  this.onClickHandler.bind(this)
+        // this.onClickHandler =  this.onClickHandler.bind(this)
     }
     
-    onClickHandler(){
-        this.setState((prevState) => {
-            if (prevState.currentQuestion < 3) {
-                return {
-                    currentQuestion: prevState.currentQuestion + 1,
-                }
-            } else {
-                return (
-                    <h1>Hosein</h1>
-                )
-            }
-        }) 
+    onClickHandler(isCorrect){
+        // this.setState((prevState) => {
+        //     if (prevState.currentQuestion < 3) {
+        //         return {
+        //             currentQuestion: prevState.currentQuestion + 1,
+        //         }
+        //     } else {
+        //         return (
+        //             <h1>Hosein</h1>
+        //         )
+        //     }
+        // }) 
+        console.log(isCorrect);
     }
 
-    handleClick() {
+    scoreHandler() {
         
     }
     
@@ -89,10 +90,10 @@ export default class Quiz extends Component {
             "w-96"
         )}>
             {this.state.question[this.state.currentQuestion].answerOption.map((index) => 
-                <Question 
+                <Question
                     key={index.id} 
                     option={index.answerText}
-                    click={this.onClickHandler}
+                    click={this.onClickHandler.bind(this, index.isCorrect)}
                 />
             )}
         </ul>
