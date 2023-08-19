@@ -2,21 +2,19 @@ import clsx from "clsx"
 import React from "react"
 import Radio from './Radio'
 import Input from './InputSearch'
-import ComboBox from "./search"
 
 export default function Book() {
     
     return(
         <div className={clsx(
-            "flex justify-center items-center flex-col"
+            "flex justify-center items-center flex-col",
         )}>
             <main className={clsx(
             "flex justify-center items-center flex-col",
-            "bg-[#30303036]",
+            "bg-[#ffffff]",
             "w-96 h-96",
             "rounded",
             "rounded-b-none",
-            "backdrop-blur"
         )}>
             <Radio />
             <Input 
@@ -70,7 +68,6 @@ export default function Book() {
                     icon={"./calender.png"}
                     type={"text"}/>
             </div>
-            <ComboBox/>
         </main>
         <footer>
             <button className={clsx(
