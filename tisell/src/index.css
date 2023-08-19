@@ -9,7 +9,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('../public/background1.jpg'); 
+  background-image: url('../public/background2.jpg');
+  background-position: 730pt;
   background-size: cover;
 }
 
@@ -23,4 +24,8 @@ input[type=radio] {
   width: 18px;
   height: 18px;
   accent-color: rgb(37 99 235);
+}
+
+.container{
+  /* height: 700px; */
 }
