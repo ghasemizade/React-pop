@@ -2,7 +2,7 @@ import clsx from "clsx"
 import React from "react"
 import Radio from './Radio'
 import Input from './InputSearch'
-import Asynchronous from "./search"
+import ComboBox from "./search"
 
 export default function Book() {
     
@@ -70,6 +70,7 @@ export default function Book() {
                     icon={"./calender.png"}
                     type={"text"}/>
             </div>
+            <ComboBox/>
         </main>
         <footer>
             <button className={clsx(
