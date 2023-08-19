@@ -9,8 +9,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('../public/background2.jpg');
-  background-position: 730pt;
+  background-image: url('../public/bg.jpg');
+  background-position: 800pt;
   background-size: cover;
 }
 
@@ -26,6 +26,12 @@ input[type=radio] {
   accent-color: rgb(37 99 235);
 }
 
-.container{
-  /* height: 700px; */
+.image-log{
+  -webkit-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);
+  box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.55);
+  transition: .2s;
+}
+.image-log:hover{
+  transform: scale(1.3);
 }

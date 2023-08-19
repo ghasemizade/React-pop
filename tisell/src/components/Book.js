@@ -7,14 +7,16 @@ export default function Book() {
     
     return(
         <div className={clsx(
-            "flex justify-center items-center flex-col",
+            "flex justify-between items-center",
+            "w-full h-full",
         )}>
             <main className={clsx(
-            "flex justify-center items-center flex-col",
+            "flex justify-around items-center flex-col",
             "bg-[#ffffff]",
-            "w-96 h-96",
+            "w-full",
             "rounded",
-            "rounded-b-none",
+            "rounded-b-md",
+            "pt-10"
         )}>
             <Radio />
             <Input 
@@ -39,7 +41,7 @@ export default function Book() {
 
                 <div className={clsx(
                     "gap",
-                    "mx-0.5"
+                    "mx-2"
                 )}></div>
 
                 <Input 
@@ -58,9 +60,9 @@ export default function Book() {
                     icon={"./calender.png"}
                     type={"text"}/>
 
-                <gap className={clsx(
-                    "mx-0.5"
-                )}></gap>
+                <div className={clsx(
+                    "mx-2"
+                )}></div>
 
                 <Input 
                     placeholder={'Return'}
@@ -68,16 +70,14 @@ export default function Book() {
                     icon={"./calender.png"}
                     type={"text"}/>
             </div>
-        </main>
-        <footer>
             <button className={clsx(
                 "bg-blue-600",
-                "w-96",
+                "w-full",
                 "rounded-b-md",
-                "py-4",
+                "py-4 mt-10",
                 "text-white text-l"
             )}>SEARCH FLIGHTS</button>
-        </footer>
+        </main>
         </div>
     )
 }

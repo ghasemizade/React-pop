@@ -10,8 +10,9 @@ export default function Decs(){
         )}>
             <img className={clsx(
                 "rounded-full",
-                "mb-20"
-            )} src="./bg.jpg" alt="" width={350} height={350} />
+                "mb-20",
+                "image-log"
+            )} src="./logo1.jpg" alt="" width={200} height={200} />
             <h1 className={clsx(
                 "text-5xl text-white font-bold",
                 "mb-20",
