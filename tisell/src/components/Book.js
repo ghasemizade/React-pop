@@ -26,12 +26,14 @@ export default function Book() {
                 "w-full",
                 "px-8 mt-5"
             )}>
-                <Autocomplete options={Provinces.map(name => name.name)} />
+                <Autocomplete options={Provinces.map(name => name.name)} 
+                    placeholder="leaving from..."/>
                 <div className={clsx(
                     "gap",
                     "my-2"
                 )}></div>
-                <Autocomplete options={Provinces.map(name => name.name)} /> 
+                <Autocomplete options={Provinces.map(name => name.name)} 
+                    placeholder="return..."/> 
             </div>
             <div className={clsx(
                 "flex justify-center items-center",
