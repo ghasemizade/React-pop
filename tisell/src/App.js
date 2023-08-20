@@ -3,6 +3,7 @@ import clsx from 'clsx'
 import Book from './components/Book';
 import Decs from './components/Decs';
 
+
 function App() {
   return (
     <div className={clsx(
@@ -14,7 +15,7 @@ function App() {
       <div className={clsx(
         "container",
         "flex justify-between items-center",
-        "px-40"
+        "px-5"
     )}>
       <Decs />
       <Book />

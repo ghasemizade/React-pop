@@ -19,7 +19,7 @@ export default function InputSearch({placeholder, label, icon, type}) {
         <>
             <section className={clsx(
                 "input-sec",
-                "bg-slate-200",
+                "bg-[#fff]",
                 "flex justify-start items-center",
                 "w-11/12",
                 "rounded",
@@ -33,7 +33,7 @@ export default function InputSearch({placeholder, label, icon, type}) {
                     )} src={icon} alt={icon} />
                 </label>
                 <input className={clsx(
-                    "bg-slate-200",
+                    "bg-[#fff]",
                     "w-full",
                     "py-3.5",
                     "outline-none"

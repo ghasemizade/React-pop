@@ -1,7 +1,10 @@
 import clsx from "clsx"
 import React from "react"
 import Radio from './Radio'
-import Input from './InputSearch'
+import InputFill from './InputSearch'
+import Autocomplete from '@mui/joy/Autocomplete';
+import Input from '@mui/joy/Input';
+import Provinces from '../provinces.json'
 
 export default function Book() {
     
@@ -19,22 +22,23 @@ export default function Book() {
             "pt-10"
         )}>
             <Radio />
-            <Input 
-                placeholder={'Leaving from...'} 
-                label={"leave"}
-                icon={"./location.png"}
-                type={"text"}/>
-            <Input 
-                placeholder={'Going to...'}
-                label={"go"}
-                icon={"./location.png"}
-                type={"text"}/>
+            <div className={clsx(
+                "w-full",
+                "px-8 mt-5"
+            )}>
+                <Autocomplete options={Provinces.map(name => name.name)} />
+                <div className={clsx(
+                    "gap",
+                    "my-2"
+                )}></div>
+                <Autocomplete options={Provinces.map(name => name.name)} /> 
+            </div>
             <div className={clsx(
                 "flex justify-center items-center",
                 "w-full",
                 "px-8"
             )}>
-                <Input 
+                <InputFill 
                     placeholder={'First name'}
                     label={"firstname"}
                     icon={"./name.png"}
@@ -45,7 +49,7 @@ export default function Book() {
                     "mx-2"
                 )}></div>
 
-                <Input 
+                <InputFill 
                     placeholder={'Last name'}
                     label={"lastname"}
                     icon={"./name.png"}
@@ -56,7 +60,7 @@ export default function Book() {
                 "w-full",
                 "px-8"
             )}>
-                <Input 
+                <InputFill 
                     placeholder={'Depart'}
                     label={"depart"}
                     icon={"./calender.png"}
@@ -66,7 +70,7 @@ export default function Book() {
                     "mx-2"
                 )}></div>
 
-                <Input 
+                <InputFill 
                     placeholder={'Return'}
                     label={"return"}
                     icon={"./calender.png"}

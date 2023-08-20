@@ -7,7 +7,7 @@ export default function Radio() {
             <section className={clsx(
                 "flex justify-start items-center",
                 "w-full",
-                "px-5"
+                "px-8"
             )}>
                 <span className={clsx(
                     "mr-5",
