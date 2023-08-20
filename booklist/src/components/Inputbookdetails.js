@@ -1,18 +1,45 @@
 import clsx from "clsx";
 import {MdTitle} from 'react-icons/md'
+import { useRef } from 'react'
 
 export default function Inputbookdetails({label, placeholder}){
+
+    const ref = useRef(null)
+    const addClass = () =>{
+        const div = ref.current
+        div.classList.add("border-[#FFB049]")  
+    }
+
+    const removeClass = () =>{
+        const div = ref.current
+        div.classList.remove("border-[#FFB049]")
+    }
+
     return (
         <div className={clsx(
-            "bg-[#ddd]",
+            "bg-[#E5E7EB]",
             "mx-40 mt-10",
-            "flex justify-start items-center"
-            )}>
-            <MdTitle/>
-            <label htmlFor={label}>
+            "flex justify-start items-center",
+            "py-2",
+            "border-2",
+            "duration-100",
+            "rounded"
+            )} onFocus={addClass} onBlur={removeClass} ref={ref}>
+            <label className={clsx(
+                "text-slate-500",
+                "ml-2 mr-2",
+                "flex justify-between items-center",
+                "w-full"
+                )} htmlFor={label}>
+                <MdTitle className={clsx(
+                    "mr-1",
+                )} />
                 {label}
                 <input id={label} className={clsx( 
-                    "bg-[#ddd]"
+                    "bg-[#E5E7EB]",
+                    "outline-none",
+                    "ml-5",
+                    "w-full"
                 )} type="text" placeholder={placeholder}/>
             </label>
         </div>
