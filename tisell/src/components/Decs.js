@@ -7,6 +7,7 @@ export default function Decs(){
         <div className={clsx(
             "flex justify-center items-start flex-col",
             "mr-60",
+            "desc"
         )}>
             <img className={clsx(
                 "rounded-full",

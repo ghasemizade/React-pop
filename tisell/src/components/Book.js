@@ -31,7 +31,8 @@ export default function Book() {
                 type={"text"}/>
             <div className={clsx(
                 "flex justify-center items-center",
-                "px-4"
+                "w-full",
+                "px-8"
             )}>
                 <Input 
                     placeholder={'First name'}
@@ -52,7 +53,8 @@ export default function Book() {
             </div>
             <div className={clsx(
                 "flex justify-center items-center",
-                "px-4"
+                "w-full",
+                "px-8"
             )}>
                 <Input 
                     placeholder={'Depart'}
