@@ -1,8 +1,7 @@
 import clsx from "clsx";
 import { useRef } from 'react'
 
-export default function Inputbookdetails({label, placeholder, children}){
-
+export default function Inputbookdetails({label, placeholder, children, changehandler}){
     const ref = useRef(null)
     const addClass = () =>{
         const div = ref.current
@@ -14,6 +13,7 @@ export default function Inputbookdetails({label, placeholder, children}){
         div.classList.remove("border-[#FFB049]")
     }
 
+    
     return (
         <div className={clsx(
             "bg-[#E5E7EB]",
@@ -23,7 +23,10 @@ export default function Inputbookdetails({label, placeholder, children}){
             "border-2",
             "duration-100",
             "rounded"
-            )} onFocus={addClass} onBlur={removeClass} ref={ref}>
+            )} onFocus={addClass} 
+                onBlur={removeClass} 
+                ref={ref} 
+                onChange={changehandler}>
             <label className={clsx(
                 "text-slate-500",
                 "ml-2 mr-2",
