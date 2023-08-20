@@ -2,6 +2,7 @@ import Inputbookdetails from "./Inputbookdetails";
 import { MdTitle } from 'react-icons/md'
 import { BsFillPersonFill, BsCalendarDateFill } from 'react-icons/bs'
 import clsx from "clsx";
+import Button from "./Button";
 
 export default function Main(){
     return (
@@ -23,6 +24,11 @@ export default function Main(){
                     "mr-2"
                 )} />
             </Inputbookdetails>
+            <div className={clsx(
+                "flex justify-center items-center"
+            )}>
+                <Button/>
+            </div>
         </>
     )
 }
