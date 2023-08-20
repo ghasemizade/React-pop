@@ -10,7 +10,7 @@ import Cities from '../cities.json'
 export default function Book() {
     function changeHandler(event){
         let mainProvince = event.target.id
-        console.log(mainProvince.lenght);
+        console.log(mainProvince);
     }
 
     return(
