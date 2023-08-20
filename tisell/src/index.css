@@ -35,3 +35,9 @@ input[type=radio] {
 .image-log:hover{
   transform: scale(1.3);
 }
+
+@media screen and (max-width: 1020px) {
+  .desc{
+    display: none;
+  }
+}
