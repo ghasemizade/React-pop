@@ -4,22 +4,24 @@ import { BsFillPersonFill, BsCalendarDateFill } from 'react-icons/bs'
 import clsx from "clsx";
 import Button from "./Button";
 
-export default function Main(){
+export default function Main({changehandler, changehandlername, changehandlerauthor, changehandleryear}){
+    
+
     return (
         <>
-            <Inputbookdetails label={"Title"}>
+            <Inputbookdetails label={"Title"} changehandler={changehandlername}>
                 <MdTitle className={clsx(
                     "mr-2"
                 )} />
             </Inputbookdetails>
 
-            <Inputbookdetails label={"Author"}>
+            <Inputbookdetails label={"Author"} changehandler={changehandlerauthor}>
                 <BsFillPersonFill className={clsx(
                     "mr-2"
                 )} />
             </Inputbookdetails>
 
-            <Inputbookdetails label={"Year"}>
+            <Inputbookdetails label={"Year"} changehandler={changehandleryear}>
                 <BsCalendarDateFill className={clsx(
                     "mr-2"
                 )} />
@@ -27,7 +29,7 @@ export default function Main(){
             <div className={clsx(
                 "flex justify-center items-center"
             )}>
-                <Button/>
+                <Button changehandler={changehandler}/>
             </div>
         </>
     )
