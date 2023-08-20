@@ -10,7 +10,7 @@ export default function Button({changehandler}){
                 "p-3 mt-10",
                 "bg-[#FFB049]",
                 ""
-            )} onChange={changehandler}>
+            )} onClick={changehandler}>
                 <BiBookAdd className={clsx(
                     "mr-5"
                 )}/>
