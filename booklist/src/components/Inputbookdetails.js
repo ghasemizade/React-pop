@@ -1,8 +1,7 @@
 import clsx from "clsx";
-import {MdTitle} from 'react-icons/md'
 import { useRef } from 'react'
 
-export default function Inputbookdetails({label, placeholder}){
+export default function Inputbookdetails({label, placeholder, children}){
 
     const ref = useRef(null)
     const addClass = () =>{
@@ -31,9 +30,7 @@ export default function Inputbookdetails({label, placeholder}){
                 "flex justify-between items-center",
                 "w-full"
                 )} htmlFor={label}>
-                <MdTitle className={clsx(
-                    "mr-1",
-                )} />
+                {children}
                 {label}
                 <input id={label} className={clsx( 
                     "bg-[#E5E7EB]",
