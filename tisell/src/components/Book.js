@@ -5,9 +5,14 @@ import InputFill from './InputSearch'
 import Autocomplete from '@mui/joy/Autocomplete';
 import Input from '@mui/joy/Input';
 import Provinces from '../provinces.json'
+import Cities from '../cities.json'
 
 export default function Book() {
-    
+    function changeHandler(event){
+        let mainProvince = event.target.id
+        console.log(mainProvince.lenght);
+    }
+
     return(
         <div className={clsx(
             "flex justify-between items-center",
@@ -29,11 +34,13 @@ export default function Book() {
                 <Autocomplete options={Provinces.map(name => name.name)} 
                     placeholder="leaving from..."/>
                 <div className={clsx(
-                    "gap",
                     "my-2"
                 )}></div>
-                <Autocomplete options={Provinces.map(name => name.name)} 
-                    placeholder="return..."/> 
+                <Autocomplete onChange={changeHandler} options={Provinces.map(name => name.name )} 
+                    placeholder="return..."/>
+                <div className={clsx(
+                    "my-2"
+                )}></div>
             </div>
             <div className={clsx(
                 "flex justify-center items-center",
