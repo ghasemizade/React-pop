@@ -12,14 +12,14 @@ function App() {
   const [nameValue, setNameValue] = useState('')
   const [authorValue, setAuthorValue] = useState('')
   const [yearValue, setYearValue] = useState('')
-  const [newBooks, setNewBook] = useState('')
-
+  
   let books = [
     {nameValue: "unconsciousness", authorValue: "mohammadi", yearValue: '1973'},
     {nameValue: "richdad poordad", authorValue: "kiyosaki", yearValue: '1997'},
     {nameValue: "think and grow rich", authorValue: "napoleon hill", yearValue: '1937'},
   ]
-
+  const [newBooks, setNewBook] = useState(books)
+  
   function changeName(event){
       setNameValue(event.target.value)
   }
@@ -41,18 +41,22 @@ function App() {
         authorValue,
         yearValue,
       }
-      setNewBook({...books}, newBook)
+      setNewBook([...books, newBook])
+      setNameValue('')
+      setAuthorValue('')
+      setYearValue('')
     }
   }
   
+
   return (
     <>
       <Header/>
       <Main 
-        changehandler={clickButton}
         changehandlername={changeName}
         changehandlerauthor={changeAuthor}
-        changehandleryear={changeYear}/>
+        changehandleryear={changeYear}
+        changehandler={clickButton}/>
 
       <div className={clsx(
         "grid grid-cols-3 gap-5",
