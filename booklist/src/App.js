@@ -12,8 +12,13 @@ function App() {
   const [nameValue, setNameValue] = useState('')
   const [authorValue, setAuthorValue] = useState('')
   const [yearValue, setYearValue] = useState('')
+  const [newBooks, setNewBook] = useState('')
 
-  const books = [1]
+  let books = [
+    {nameValue: "unconsciousness", authorValue: "mohammadi", yearValue: '1973'},
+    {nameValue: "richdad poordad", authorValue: "kiyosaki", yearValue: '1997'},
+    {nameValue: "think and grow rich", authorValue: "napoleon hill", yearValue: '1937'},
+  ]
 
   function changeName(event){
       setNameValue(event.target.value)
@@ -28,16 +33,18 @@ function App() {
   }
 
   function clickButton(){
+    
+    // console.log(nameValue);
     if (nameValue && authorValue && yearValue) {
       let newBook = {
-        id: books.length + 1,
         nameValue,
         authorValue,
         yearValue,
       }
+      setNewBook({...books}, newBook)
     }
   }
-
+  
   return (
     <>
       <Header/>
@@ -48,14 +55,14 @@ function App() {
         changehandleryear={changeYear}/>
 
       <div className={clsx(
-        "grid grid-cols-4",
+        "grid grid-cols-3 gap-5",
         "mt-10"
       )}>
-        {books.map(book => 
+        {books.map((index) => 
         <Book 
-          nameValue={setNameValue}
-          authorValue={setAuthorValue}
-          yearValue={setYearValue}
+          nameValue={index.nameValue}
+          authorValue={index.authorValue}
+          yearValue={index.yearValue}
           />)}
       </div>
     </>

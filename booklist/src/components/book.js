@@ -13,7 +13,7 @@ export default function Book({nameValue, authorValue, yearValue}){
               "w-40 h-44",
               "bg-orange-200",
               "mt-10",
-              "text-center",
+              "text-center text-sm",
               "flex flex-col justify-around items-start",
               "rounded",
               "hover:shadow-lg shadow-gray-300 duration-150"
