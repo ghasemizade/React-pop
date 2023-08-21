@@ -1,0 +1,24 @@
+footer {
+    border-top: 2px solid #eee;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.contact{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.contact a{
+    text-decoration: none;
+    color: #999;
+    transition: .2s;
+    font-weight: 500;
+}
+
+.contact a:hover{
+    color: black;
+}
