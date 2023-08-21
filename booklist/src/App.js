@@ -13,7 +13,7 @@ function App() {
   const [authorValue, setAuthorValue] = useState('')
   const [yearValue, setYearValue] = useState('')
 
-  const books = [1, 2, 3, 4]
+  const books = [1]
 
   function changeName(event){
       setNameValue(event.target.value)
@@ -28,9 +28,14 @@ function App() {
   }
 
   function clickButton(){
-    console.log(nameValue);
-    console.log(authorValue);
-    console.log(yearValue);
+    if (nameValue && authorValue && yearValue) {
+      let newBook = {
+        id: books.length + 1,
+        nameValue,
+        authorValue,
+        yearValue,
+      }
+    }
   }
 
   return (
