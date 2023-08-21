@@ -15,7 +15,7 @@ export default function Inputbookdetails({label, placeholder, children, changeha
 
     
     return (
-        <div className={clsx(
+        <form className={clsx(
             "bg-[#E5E7EB]",
             "mx-40 mt-10",
             "flex justify-start items-center",
@@ -42,6 +42,6 @@ export default function Inputbookdetails({label, placeholder, children, changeha
                     "w-full"
                 )} type="text" placeholder={placeholder}/>
             </label>
-        </div>
+        </form>
     )
 }
