@@ -1,0 +1,32 @@
+header{
+    border-bottom: 2px solid #eee;
+    margin: 0 200px;
+}
+
+.nav-bar{
+    margin-top: 40px;
+}
+
+.nav-bar ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+}
+
+.nav-bar ul li {
+    color: #999;
+    font-weight: 500;
+    transition: .2s;
+    padding: 10px;
+    border-radius: 20px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-bar ul li:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgba(58, 85, 238, 0.562);
+}
