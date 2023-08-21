@@ -4,7 +4,9 @@ import './Main.css'
 export default class Main extends Component {
   render() {
     return (
-      <div>Main</div>
+      <main>
+        main
+      </main>
     )
   }
 }
