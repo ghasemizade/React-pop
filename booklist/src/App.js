@@ -1,10 +1,11 @@
-import clsx from 'clsx';
+
 import './App.css';
 import Header from './components/Header';
 import Main from './components/Main';
 import { useState } from 'react'
-import { MdTitle } from 'react-icons/md'
-import { BsFillPersonFill, BsCalendarDateFill } from 'react-icons/bs'
+import Book from './components/book';
+import clsx from 'clsx';
+
 
 
 function App() {
@@ -12,76 +13,45 @@ function App() {
   const [authorValue, setAuthorValue] = useState('')
   const [yearValue, setYearValue] = useState('')
 
+  const books = [1, 2, 3, 4]
+
   function changeName(event){
       setNameValue(event.target.value)
   }
 
   function changeAuthor(event){
     setAuthorValue(event.target.value)
-}
+  }
 
-function changeYear(event){
-  setYearValue(event.target.value)
-}
+  function changeYear(event){
+    setYearValue(event.target.value)
+  }
 
-function changeButton(){
-  console.log(nameValue);
-  console.log(authorValue);
-  console.log(yearValue);
-}
+  function clickButton(){
+    console.log(nameValue);
+    console.log(authorValue);
+    console.log(yearValue);
+  }
 
   return (
     <>
       <Header/>
       <Main 
-        changehandler={changeButton}
+        changehandler={clickButton}
         changehandlername={changeName}
         changehandlerauthor={changeAuthor}
         changehandleryear={changeYear}/>
+
       <div className={clsx(
-        "flex justify-center items-center"
+        "grid grid-cols-4",
+        "mt-10"
       )}>
-        <div className={clsx(
-          "w-40 h-44",
-          "bg-orange-200",
-          "mt-10",
-          "text-center",
-          "flex flex-col justify-around items-start",
-          "rounded",
-          "hover:shadow-lg shadow-gray-300 duration-150"
-        )}>
-          <div className={clsx(
-            "flex items-center",
-            "ml-2"
-          )}>
-            <MdTitle className={clsx(
-              "text-slate-600",
-                  )} />
-            <h1 className={clsx("ml-2")}>{nameValue}</h1>
-          </div>
-
-          <div className={clsx(
-            "flex items-center",
-            "ml-2",
-            )}>
-            <BsFillPersonFill className={clsx(
-              "text-slate-600",
-                  )} />
-            <p className={clsx("ml-2")}>{authorValue}</p>
-          </div>
-          
-          <div className={clsx(
-            "flex items-center",
-            "ml-2"
-          )}>
-            <BsCalendarDateFill className={clsx(
-              "text-slate-600"
-                  )} />
-            <p className={clsx("ml-2")}>{yearValue}</p>
-          </div>
-        </div>
-
-
+        {books.map(book => 
+        <Book 
+          nameValue={setNameValue}
+          authorValue={setAuthorValue}
+          yearValue={setYearValue}
+          />)}
       </div>
     </>
   );
