@@ -26,6 +26,7 @@ export default class Card extends Component {
         }
 
         this.clickHandler = this.clickHandler.bind(this)
+        this.emptyShoppingCart = this.emptyShoppingCart.bind(this)
       }
 
       clickHandler(productId){
@@ -41,6 +42,9 @@ export default class Card extends Component {
         })
       }
     
+      emptyShoppingCart (){
+
+      }
 
   render() {
     return (
@@ -65,6 +69,9 @@ export default class Card extends Component {
             {this.state.shoppingCart.map(product => (
               <Cart {...product}/>
             ))}
+        </div>
+        <div className='reset'>
+          <button>RESET</button>
         </div>
       </div>
     )
