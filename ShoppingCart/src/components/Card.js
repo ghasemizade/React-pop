@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Img from './Img'
 import './Card.css'
+import Cart from './Cart';
 
 export default class Card extends Component {
 
@@ -62,14 +63,7 @@ export default class Card extends Component {
         </div>
         <div className="cart-items">
             {this.state.shoppingCart.map(product => (
-              <div className='cart'>
-                <h2>{product.title}</h2>
-                <p>{product.price}</p>
-                <Img src={product.src} width={60} height={60}/>
-                <button className="cancle">
-                    Cancle
-                </button>
-              </div>
+              <Cart {...product}/>
             ))}
         </div>
       </div>
