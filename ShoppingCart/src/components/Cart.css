@@ -1,17 +1,18 @@
-.cart-container{
+.cart-items{
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.cart{
-    margin: 100px 0;
-    width: 80%;
-    display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     border-radius: 10px;
+    margin: 100px 0;
+    flex-direction: column;
+}
+
+.cart{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .cancle{
