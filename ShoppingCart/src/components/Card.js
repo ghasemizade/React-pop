@@ -27,6 +27,7 @@ export default class Card extends Component {
 
         this.clickHandler = this.clickHandler.bind(this)
         this.emptyShoppingCart = this.emptyShoppingCart.bind(this)
+        this.removeItemCart = this.removeItemCart.bind(this)
       }
 
       clickHandler(productId){
@@ -43,7 +44,13 @@ export default class Card extends Component {
       }
     
       emptyShoppingCart (){
+        this.setState({
+          shoppingCart: []
+        })
+      }
 
+      removeItemCart (productId){
+        console.log(productId);
       }
 
   render() {
@@ -67,10 +74,10 @@ export default class Card extends Component {
         </div>
         <div className="cart-items">
             {this.state.shoppingCart.map(product => (
-              <Cart {...product}/>
+              <Cart {...product} onRemoveItem={this.removeItemCart}/>
             ))}
         </div>
-        <div className='reset'>
+        <div className='reset' onClick={this.emptyShoppingCart}>
           <button>RESET</button>
         </div>
       </div>
