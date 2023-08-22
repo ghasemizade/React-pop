@@ -1,0 +1,23 @@
+
+.container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.image-card{
+    flex-direction: column;
+}
+
+.img{
+    border-radius: 10px;
+}
+
+.img:hover{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+h2{
+    text-align: center;
+}
