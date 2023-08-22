@@ -35,6 +35,10 @@ export default class Card extends Component {
                     <div className='image-card'>
                       <Img {...product} width={300} height={300}/>
                     </div>
+                    <div className='detail'>
+                      <p>{product.price}</p>
+                      <button>ADDTOCART</button>
+                    </div>
                   </div>
           ))}      
       </div>
