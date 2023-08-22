@@ -1,5 +1,4 @@
 import './App.css';
-import Cart from './components/Cart';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Main from './components/Main';
@@ -11,10 +10,6 @@ function App() {
       <Header />
 
       <Main />
-
-        <div className='cart-container'>
-            <Cart />
-        </div>
 
       <Footer />
 
