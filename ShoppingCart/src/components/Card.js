@@ -50,7 +50,13 @@ export default class Card extends Component {
       }
 
       removeItemCart (productId){
-        console.log(productId);
+        let newShoppingCart = this.state.shoppingCart.filter(product => {
+          return product.id !== productId
+        })
+
+        this.setState ({
+          shoppingCart: newShoppingCart
+        })
       }
 
   render() {
