@@ -44,20 +44,34 @@ export default class Card extends Component {
   render() {
     return (
       <div className='container'>
-          {this.state.products.map((product) => (
-                  <div className='card'>
-                    <h2>{product.title}</h2>
-                    <div className='image-card'>
-                      <Img {...product} width={300} height={300}/>
+        <div className='card-items'>
+            {this.state.products.map((product) => (
+                    <div className='card'>
+                      <h2>{product.title}</h2>
+                      <div className='image-card'>
+                        <Img {...product} width={300} height={300}/>
+                      </div>
+                      <div className='detail'>
+                        <p>{product.price}</p>
+                        <button onClick={this.clickHandler.bind(this, product.id)}>
+                          ADDTOCART
+                        </button>
+                      </div>
                     </div>
-                    <div className='detail'>
-                      <p>{product.price}</p>
-                      <button onClick={this.clickHandler.bind(this, product.id)}>
-                        ADDTOCART
-                      </button>
-                    </div>
-                  </div>
-          ))}      
+            ))}      
+        </div>
+        <div className="cart-items">
+            {this.state.shoppingCart.map(product => (
+              <div className='cart'>
+                <h2>{product.title}</h2>
+                <p>{product.price}</p>
+                <Img src={product.src} width={60} height={60}/>
+                <button className="cancle">
+                    Cancle
+                </button>
+              </div>
+            ))}
+        </div>
       </div>
     )
   }
