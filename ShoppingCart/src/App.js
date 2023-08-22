@@ -8,15 +8,15 @@ import './components/Cart.css'
 function App() {
   return (
     <>
-      <Header/>
+      <Header />
 
-      <Main/>
+      <Main />
 
-      <div className='cart-container'>
-        <Cart/>
-      </div>
+        <div className='cart-container'>
+            <Cart />
+        </div>
 
-      <Footer/>
+      <Footer />
 
     </>
   );
