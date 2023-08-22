@@ -6,8 +6,11 @@
     margin-top: 40px;
 }
 
-.image-card{
+.card{
+    display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
 }
 
 .img{
@@ -20,4 +23,34 @@
 
 h2{
     text-align: center;
+}
+
+button{
+    border-radius: 5px;
+    border: none;
+    padding: 8px;
+    background-color: rgb(97, 194, 97);
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    transition: .2s;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+button:hover{
+    background-color: white;
+    color: rgb(97, 194, 97);
+}
+
+.detail{
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+}
+
+p{
+    font-weight: 600;
+    color: #aaa;
+    font-size: 18px;
 }
