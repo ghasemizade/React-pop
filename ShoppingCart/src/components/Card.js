@@ -20,10 +20,25 @@ export default class Card extends Component {
                 {id: 9, title: "Jordan Jump2", price: "85$", src: "/shoe9.png"},
                 {id: 10, title: "Jordan Air Man", price: "85$", src: "/shoe10.png"},
                 {id: 11, title: "Jordan Classic2", price: "85$", src: "/shoe11.png"},
-            ]
+            ],
+            shoppingCart: []
         }
-        console.log(this.state.products[0].src);
-    }
+
+        this.clickHandler = this.clickHandler.bind(this)
+      }
+
+      clickHandler(productId){
+        let mainProduct = this.state.products.find(product => {
+          return product.id === productId
+        })
+        console.log(mainProduct);
+      
+        this.setState(prevState => {
+          return {
+            shoppingCart: [...prevState.shoppingCart, mainProduct]
+          }
+        })
+      }
     
 
   render() {
@@ -37,7 +52,9 @@ export default class Card extends Component {
                     </div>
                     <div className='detail'>
                       <p>{product.price}</p>
-                      <button>ADDTOCART</button>
+                      <button onClick={this.clickHandler.bind(this, product.id)}>
+                        ADDTOCART
+                      </button>
                     </div>
                   </div>
           ))}      
