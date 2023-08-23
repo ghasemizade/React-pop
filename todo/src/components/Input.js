@@ -2,7 +2,6 @@ import clsx from 'clsx'
 import React, { Component } from 'react'
 import {AiFillPlusCircle} from 'react-icons/ai'
 import Todo from './Todo';
-import Filter from './Filter';
 
 export default class Input extends Component {
     constructor(props) {
@@ -11,13 +10,14 @@ export default class Input extends Component {
       this.state = {
           todos: [],
           todoTitle: '',
-          status: 'all'
+          status: 'All'
       }
 
       this.changeHandler = this.changeHandler.bind(this)
       this.clickHandler = this.clickHandler.bind(this)
       this.removetodo = this.removetodo.bind(this)
       this.completed = this.completed.bind(this)
+      this.typeEdit= this.typeEdit.bind(this)
     }
     
     changeHandler(event){
@@ -66,6 +66,13 @@ export default class Input extends Component {
       })
     }
 
+    typeEdit (event){
+      console.log(event.target.value);
+      this.setState({
+        status: event.target.value
+      })
+    }
+
   render() {
     return (
       <div>
@@ -94,15 +101,42 @@ export default class Input extends Component {
                 cursor={'pointer'} 
                 onClick={this.clickHandler}/>
           </div>
-          <Filter/>
+          <select className={clsx(
+            "outline-none",
+            "py-1 px-2",
+            "rounded-lg"
+          )} onChange={this.typeEdit}>
+            <option value="All">All</option>
+            <option value="Completed">Completed</option>
+            <option value="Uncompleted">Uncompleted</option>
+          </select>
         </div>
         <div className={clsx(
           "flex justify-center items-center flex-col",
           "mt-20"
           )}>
-            {this.state.todos.map(todo => (
-              <Todo key={todo.id} {...todo} onRemove={this.removetodo} onCompleted={this.completed}/>
-            ))}
+
+            {
+              this.state.status === "Completed" && this.state.todos.filter(todo => todo.completed).map
+              (todo => (
+                <Todo key={todo.id} {...todo} onRemove={this.removetodo} onCompleted={this.completed}/>
+              ))
+            }
+
+            {
+              this.state.status === "Uncompleted" && this.state.todos.filter(todo => !todo.completed).map
+              (todo => (
+                <Todo key={todo.id} {...todo} onRemove={this.removetodo} onCompleted={this.completed}/>
+              ))
+            }
+            
+            {
+              this.state.status === "All" && this.state.todos.map(todo => (
+                <Todo key={todo.id} {...todo} onRemove={this.removetodo} onCompleted={this.completed}/>
+              ))
+            }
+
+
         </div>
       </div>
     )

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Input from './Input'
 import clsx from 'clsx'
-import Filter from './Filter'
+
 
 export default class Main extends Component {
   render() {
