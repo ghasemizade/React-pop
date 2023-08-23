@@ -14,7 +14,6 @@ export default class Main extends Component {
             "flex justify-center items-center"
         )}>
             <Input />
-            <Filter />
         </div>
       </main>
     )
