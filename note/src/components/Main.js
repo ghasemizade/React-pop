@@ -27,6 +27,7 @@ export default class Main extends Component {
         this.colorClickHandler = this.colorClickHandler.bind(this)
         this.addClick = this.addClick.bind(this)
         this.emptyNote = this.emptyNote.bind(this)
+        this.removeNote = this.removeNote.bind(this)
     }
     
     noteHandler (event){
@@ -61,6 +62,16 @@ export default class Main extends Component {
         this.setState({
             noteValue: '',
             inputColor: ''
+        })
+    }
+
+    removeNote (noteId){
+        let newNotes = [...this.state.notes]
+        
+        this.setState({
+            notes: newNotes.filter(note => {
+                return note.id !== noteId
+            })
         })
     }
 
@@ -116,7 +127,7 @@ export default class Main extends Component {
             "grid grid-cols-3"
         )}>
             {this.state.notes.map(note => (
-                <Notebox key={note.id} {...note}/>
+                <Notebox key={note.id} {...note} onRemove={this.removeNote}/>
             ))}
         </div>
       </main>
