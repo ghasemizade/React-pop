@@ -50,8 +50,9 @@ export default class Main extends Component {
         console.log(newNote);
         this.setState(prevState => {
             return {
-                notes: [...this.state.notes, newNote],
-
+                notes: [...prevState.notes, newNote],
+                inputColor: '',
+                noteValue: ''
             }
         })
     }
