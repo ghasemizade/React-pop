@@ -17,7 +17,7 @@ export default class Main extends Component {
                 "rgb(34 197 94)",
                 "rgb(239 68 68)",
             ],
-            notes: [1, 2, 3],
+            notes: [],
             noteValue: '',
             inputColor: ''
         }
@@ -47,9 +47,10 @@ export default class Main extends Component {
             title: this.state.noteValue,
             color: this.state.inputColor
         }
+        console.log(newNote);
         this.setState(prevState => {
             return {
-                notes: [...prevState.notes, newNote],
+                notes: [...this.state.notes, newNote],
 
             }
         })
@@ -114,7 +115,7 @@ export default class Main extends Component {
             "grid grid-cols-3"
         )}>
             {this.state.notes.map(note => (
-                <Notebox noteTitle={note}/>
+                <Notebox key={note.id} {...note}/>
             ))}
         </div>
       </main>
