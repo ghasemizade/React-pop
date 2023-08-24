@@ -22,7 +22,11 @@ export default class Main extends Component {
             inputColor: ''
         }
 
+
         this.noteHandler = this.noteHandler.bind(this)
+        this.colorClickHandler = this.colorClickHandler.bind(this)
+        this.addClick = this.addClick.bind(this)
+        this.emptyNote = this.emptyNote.bind(this)
     }
     
     noteHandler (event){
@@ -31,9 +35,30 @@ export default class Main extends Component {
         })
     }
 
-    addClick (prevState){
+    colorClickHandler (colorClick){
         this.setState({
-            notes: [...prevState]
+            inputColor: colorClick
+        })
+    }
+
+    addClick (){
+        let newNote = {
+            id: this.state.notes + 1,
+            title: this.state.noteValue,
+            color: this.state.inputColor
+        }
+        this.setState(prevState => {
+            return {
+                notes: [...prevState.notes, newNote],
+
+            }
+        })
+    }
+
+    emptyNote (){
+        this.setState({
+            noteValue: '',
+            inputColor: ''
         })
     }
 
@@ -53,16 +78,20 @@ export default class Main extends Component {
                 "py-1 pl-5",
                 "outline-none",
                 "rounded",
-                "text-[#006eff]",
+                "#fff",
                 "font-medium",
-            )} type="text" placeholder='note...' onChange={this.noteHandler} />
+            )} type="text"
+                placeholder='note...' 
+                onChange={this.noteHandler} 
+                value={this.state.noteValue} 
+                style={{backgroundColor: this.state.inputColor}}/>
         </div>
         <div className={clsx(
             "flex justify-between items-baseline",
             "w-2/5"
         )}>
             {this.state.colors.map(color => (
-                <Palete color={color} key={color}/>
+                <Palete color={color} key={color} onColor={this.colorClickHandler}/>
             ))}
             <div className={clsx(
                 "flex justify-center items-center"
@@ -76,7 +105,7 @@ export default class Main extends Component {
                 <div className={clsx(
                     "border-2 p-2 rounded-full mt-2",
                     "border-red-500"
-                )}>
+                )} onClick={this.emptyNote}>
                     <BsEraser size={25} color='#006eff'/>
                 </div>
             </div>
