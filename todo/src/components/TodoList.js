@@ -9,39 +9,37 @@ export default function TodoList () {
   const [status, setStatus] = useState('All')
     
     
-    changeHandler(event){
-      this.setState({
-        todoTitle: event.target.value
-      })
+    const changeHandler = (event) =>{
+      setTodoTitle(event.target.value)
     }
 
-    clickHandler(){
+    const clickHandler = () =>{
         let newTodo = {
-          id: this.state.todos.length + 1,
-          title: this.state.todoTitle,
+          id: todos.length + 1,
+          title: todoTitle,
           completed: false
         }
 
-        this.setState(preveState =>{
-          return {
-            todos: [...preveState.todos, newTodo],
-            todoTitle: ''
-          }
-        })
+
+        setTodos(newTodo)
+        // this.setState(preveState =>{
+        //   return {
+        //     todos: [...preveState.todos, newTodo],
+        //     todoTitle: ''
+        //   }
+        // })
     }
 
-    removetodo (todoId){
+    const removetodo = (todoId) =>{
 
-      let newtodos = this.state.todos.filter(todo => {
+      let newtodos = todos.filter(todo => {
         return todo.id !== todoId
       })
       
-      this.setState({
-        todos: newtodos
-      })
+      setTodos(newtodos)
     }
 
-    completed (todoId){
+    const completed = (todoId) =>{
       let newTodos = [...this.state.todos]
 
 
@@ -50,21 +48,21 @@ export default function TodoList () {
           todo.completed = !todo.completed
         }
       })
-      this.setState({
-        todos: newTodos
-      })
+      // this.setState({
+      //   todos: newTodos
+      // })
     }
 
-    typeEdit (event){
+    const typeEdit = (event) =>{
       console.log(event.target.value);
-      this.setState({
-        status: event.target.value
-      })
+      // this.setState({
+      //   status: event.target.value
+      // })
     }
 
-  render() {
     return (
       <div>
+        {console.log(todos)}
         <div className={clsx(
           "flex justify-center items-center"
         )}>
@@ -82,19 +80,19 @@ export default function TodoList () {
                 "bg-white",
                 "rounded-lg",
             )} type='text' placeholder='Todo...' 
-                value={this.state.todoTitle}
-                onChange={this.changeHandler} />
+                value={todoTitle}
+                onChange={changeHandler} />
             <AiFillPlusCircle 
                 size={20} 
                 color='#6366f1' 
                 cursor={'pointer'} 
-                onClick={this.clickHandler}/>
+                onClick={() => clickHandler()}/>
           </div>
           <select className={clsx(
             "outline-none",
             "py-1 px-2",
             "rounded-lg"
-          )} onChange={this.typeEdit}>
+          )} onChange={typeEdit}>
             <option value="All">All</option>
             <option value="Completed">Completed</option>
             <option value="Uncompleted">Uncompleted</option>
@@ -106,22 +104,22 @@ export default function TodoList () {
           )}>
 
             {
-              this.state.status === "Completed" && this.state.todos.filter(todo => todo.completed).map
+              status === "Completed" && todos.filter(todo => todo.completed).map
               (todo => (
-                <Todo key={todo.id} {...todo} onRemove={this.removetodo} onCompleted={this.completed}/>
+                <Todo key={todo.id} {...todo} onRemove={removetodo} onCompleted={completed}/>
               ))
             }
 
             {
-              this.state.status === "Uncompleted" && this.state.todos.filter(todo => !todo.completed).map
+              status === "Uncompleted" && todos.filter(todo => !todo.completed).map
               (todo => (
-                <Todo key={todo.id} {...todo} onRemove={this.removetodo} onCompleted={this.completed}/>
+                <Todo key={todo.id} {...todo} onRemove={removetodo} onCompleted={completed}/>
               ))
             }
             
             {
-              this.state.status === "All" && this.state.todos.map(todo => (
-                <Todo key={todo.id} {...todo} onRemove={this.removetodo} onCompleted={this.completed}/>
+              status === "All" && todos.map(todo => (
+                <Todo key={todo.id} {...todo} onRemove={removetodo} onCompleted={completed}/>
               ))
             }
 
@@ -129,5 +127,4 @@ export default function TodoList () {
         </div>
       </div>
     )
-  }
 }
