@@ -1,8 +1,7 @@
 import clsx from 'clsx'
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class Header extends Component {
-  render() {
+export default function Header () {
     return (
       <div className={clsx(
         "flex justify-center items-center",
@@ -18,5 +17,4 @@ export default class Header extends Component {
         )}>TODO APP</h1>
       </div>
     )
-  }
 }
