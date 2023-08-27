@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Input from './Input'
+import TodoList from './TodoList'
 import clsx from 'clsx'
 
 
@@ -13,7 +13,7 @@ export default class Main extends Component {
         <div className={clsx(
             "flex justify-center items-center"
         )}>
-            <Input />
+            <TodoList />
         </div>
       </main>
     )
