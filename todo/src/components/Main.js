@@ -1,10 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import TodoList from './TodoList'
 import clsx from 'clsx'
 
 
-export default class Main extends Component {
-  render() {
+export default function Main () {
     return (
       <main className={clsx(
         "flex justify-center items-center",
@@ -17,5 +16,4 @@ export default class Main extends Component {
         </div>
       </main>
     )
-  }
 }
