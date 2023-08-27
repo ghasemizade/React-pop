@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import React, { Component, useState } from 'react'
+import React, { useState } from 'react'
 import {AiFillPlusCircle} from 'react-icons/ai'
 import Todo from './Todo';
 
@@ -7,21 +7,7 @@ export default function TodoList () {
   const [todos, setTodos] = useState([])
   const [todoTitle, setTodoTitle] = useState('')
   const [status, setStatus] = useState('All')
-    constructor(props) {
-      super(props);
-      
-      this.state = {
-          todos: [],
-          todoTitle: '',
-          status: 'All'
-      }
-
-      this.changeHandler = this.changeHandler.bind(this)
-      this.clickHandler = this.clickHandler.bind(this)
-      this.removetodo = this.removetodo.bind(this)
-      this.completed = this.completed.bind(this)
-      this.typeEdit= this.typeEdit.bind(this)
-    }
+    
     
     changeHandler(event){
       this.setState({
