@@ -27,6 +27,9 @@ header{
 }
 
 .nav-bar ul li:hover {
-    color: rgb(255, 255, 255);
-    background-color: rgba(58, 85, 238, 0.562);
+    color: rgb(58, 85, 238);
+}
+
+.nav-bar ul li:nth-child(2){
+    color: rgb(58, 85, 238);
 }
