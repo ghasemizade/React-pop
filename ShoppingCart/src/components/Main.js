@@ -1,13 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './Main.css'
 import Card from './Card'
 
-export default class Main extends Component {
-  render() {
-    return (
-      <main>
-        <Card/>
-      </main>
-    )
-  }
+export default function Main () {
+
+  return (
+    <main>
+      <Card/>
+    </main>
+  )
 }
