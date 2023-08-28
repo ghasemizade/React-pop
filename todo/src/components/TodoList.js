@@ -67,7 +67,7 @@ export default function TodoList () {
           )}>
             <input className={clsx(
                 "outline-none",
-                "px-5 py-1",
+                "px-5 py-2",
                 "w-full",
                 "bg-white",
                 "rounded-lg",
@@ -82,7 +82,7 @@ export default function TodoList () {
           </div>
           <select className={clsx(
             "outline-none",
-            "py-1 px-2",
+            "py-2 px-2",
             "rounded-lg"
           )} onChange={typeEdit}>
             <option value="All">All</option>
