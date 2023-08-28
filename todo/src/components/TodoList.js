@@ -21,13 +21,11 @@ export default function TodoList () {
         }
 
 
-        setTodos(newTodo)
-        // this.setState(preveState =>{
-        //   return {
-        //     todos: [...preveState.todos, newTodo],
-        //     todoTitle: ''
-        //   }
-        // })
+        setTodos(preveState => {
+          return [...preveState, newTodo]
+        })
+
+        setTodoTitle('')
     }
 
     const removetodo = (todoId) =>{
@@ -40,29 +38,23 @@ export default function TodoList () {
     }
 
     const completed = (todoId) =>{
-      let newTodos = [...this.state.todos]
-
+      let newTodos = [...todos]
 
       newTodos.forEach(todo => {
         if (todo.id === todoId) {
           todo.completed = !todo.completed
         }
       })
-      // this.setState({
-      //   todos: newTodos
-      // })
+      
+      setTodos(newTodos)
     }
 
     const typeEdit = (event) =>{
-      console.log(event.target.value);
-      // this.setState({
-      //   status: event.target.value
-      // })
+      setStatus(event.target.value)
     }
 
     return (
       <div>
-        {console.log(todos)}
         <div className={clsx(
           "flex justify-center items-center"
         )}>
