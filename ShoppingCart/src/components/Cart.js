@@ -1,25 +1,22 @@
-import React,{ Component } from "react";
+import React from "react";
 import Img from "./Img";
 import './Cart.css'
 
-export default class Cart extends Component{
+export default function Cart(props) {
 
-    clickHandler (id){
-        this.props.onRemoveItem(id)
+    const clickHandler = (id) =>{
+        props.onRemoveItem(id)
     }
 
-    render(){
-        let {id, title, price, src} = this.props
-
-        return (
-            <div className='cart'>
-                <h2>{title}</h2>
-                <p>{price}</p>
-                <Img src={src} width={60} height={60}/>
-                <button className="cancle" onClick={this.clickHandler.bind(this, id)}>
-                    Cancle
-                </button>
-        </div>
-        )
-    }
+    let {id, title, price, src} = props
+    return (
+        <div className='cart'>
+            <h2>{title}</h2>
+            <p>{price}</p>
+            <Img src={src} width={60} height={60}/>
+            <button className="cancle" onClick={() => clickHandler(id)}>
+                Cancle
+            </button>
+    </div>
+    )
 }
