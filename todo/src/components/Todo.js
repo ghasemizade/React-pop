@@ -1,22 +1,13 @@
 import clsx from 'clsx'
-import React, { Component } from 'react'
+import React, {  } from 'react'
 import { TiTick, TiTrash } from 'react-icons/ti'
 import '../index.css'
 
-export default class Todo extends Component {
+export default function Todo ({completed, removeHandler}) {
 
-    removeHandler (id){
-      this.props.onRemove(id)
-    }
-
-    completed (id){
-      this.props.onCompleted(id)
-    }
-
-    render() {
     return (
       <div className={clsx(
-        `todo ${this.props.completed ? 'todo-title' : ''}`,
+        `todo ${completed ? 'todo-title' : ''}`,
         "flex justify-between items-center",
         "bg-white",
         "w-80",
@@ -34,7 +25,7 @@ export default class Todo extends Component {
                 size={30} 
                 color='#6366f1' 
                 cursor={'pointer'}
-                onClick={this.completed.bind(this, this.props.id)}
+                onClick={completed}
                 />
             <TiTrash
                 className={clsx(
@@ -44,9 +35,8 @@ export default class Todo extends Component {
                 size={30} 
                 color='#6366f1' 
                 cursor={'pointer'}
-                onClick={this.removeHandler.bind(this, this.props.id)}/>
+                onClick={removeHandler}/>
         </div>
       </div>
     )
-  }
 }
