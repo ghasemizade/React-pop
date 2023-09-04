@@ -9,7 +9,9 @@ export default function Product() {
     <div>
         {products.map(product =>(
             <React.Fragment key={product.id}>
-                <Link to={`/product/${product.id}`}>{product.title}</Link>
+                <Link to={`/product/${product.id}`}>
+                    {product.title}
+                </Link>
                 <hr/>    
             </React.Fragment>
         ))}
