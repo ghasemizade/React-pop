@@ -3,6 +3,8 @@ import './App.css';
 import Home from './components/Home';
 import Contact from './components/Contact';
 import About from './components/About';
+import Product from './components/Product';
+import Mainproduct from './components/Mainproduct';
 
 
 function App() {
@@ -16,8 +18,11 @@ function App() {
           
         <Route 
           path="/product"
-          element={<About/>} />
-        
+          element={<Product/>} />
+        <Route 
+          path="/product/:productId"
+          element={<Mainproduct/>} />
+
         <Route 
           path="/contact"
           element={<Contact/>} />
