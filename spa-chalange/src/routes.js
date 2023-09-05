@@ -3,6 +3,8 @@ import Contact from './components/Contact';
 import About from './components/About/About';
 import Product from './components/Product';
 import Mainproduct from './components/Mainproduct';
+import Login from './components/Login';
+import Dashboard from './components/Dashboard';
 
 
 let router = [
@@ -28,6 +30,14 @@ let router = [
         {path:"setting", element: <span> {`>`} setting</span>},
         {path:"dashboard", element: <span> {`>`} dashboard</span>},
       ]
+    },
+    {
+        path: "/login",
+        element: <Login />
+    },
+    {
+        path: "/dashboard",
+        element: <Dashboard />
     },
   ]
 
