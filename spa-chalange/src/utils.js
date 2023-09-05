@@ -5,4 +5,14 @@ let productData = [
     {id: 4, title: 'APPLE'},
   ]
 
-  export default productData
+  const isLogin = (userName) =>{
+    if (userName === 'hosein') {
+      return true
+    }
+
+    return false
+  }
+
+  let isUserLogin = isLogin('hosein')
+
+  export {productData, isLogin, isUserLogin}
