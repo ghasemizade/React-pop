@@ -1,6 +1,6 @@
 import React from 'react'
 import { isUserLogin } from './../utils'
-import Login from './Login'
+import { Navigate } from 'react-router-dom'
 
 export default function Dashboard() {
   
@@ -11,7 +11,7 @@ export default function Dashboard() {
         {isUserLogin ? (
             <p>you're login</p>
         ) : (
-            <Login/>
+            <Navigate to={'/login'}/>
         )}
     </div>
   )
