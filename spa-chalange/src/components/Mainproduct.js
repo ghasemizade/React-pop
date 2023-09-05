@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useParams, Navigate } from 'react-router-dom'
-import productData from '../utils'
+import {productData} from '../utils'
 
 export default function Mainproduct() {
     let params = useParams()
