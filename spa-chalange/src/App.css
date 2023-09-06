@@ -1,38 +1,35 @@
-.App {
-  text-align: center;
+
+/* Header.css */
+
+.header {
+  display: flex; /* Make the header a flex container */
+  justify-content: space-between; /* Space elements horizontally */
+  background-color: #333; /* Background color for the header strip */
+  color: #fff; /* Text color */
+  padding: 10px 20px; /* Add padding to the header */
+  align-items: center; /* Vertically align items to the center */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.logo {
+  flex: 1; /* Allow the logo to take available space */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nav ul {
+  list-style: none; /* Remove bullet points from the list */
+  padding: 0;
+  margin: 0;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.nav li {
+  display: inline; /* Display list items horizontally */
+  margin-right: 20px; /* Add spacing between list items */
 }
 
-.App-link {
-  color: #61dafb;
+.nav a {
+  text-decoration: none;
+  color: #fff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav a:hover {
+  text-decoration: underline; /* Add underline on hover */
 }
