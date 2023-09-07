@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import regex from '../../utils/regex';
 import notRed from "../../assets/not-red.svg";
 import checkGreen from "../../assets/check-green.svg";
-import {useState} from 'react'
+import {useState, ChangeEventHandler } from 'react'
 
 type ICreateUserData = {
     name: string;
@@ -35,10 +35,10 @@ const schema = yup.object({
 })
 
 export default function SignUp() {
-    const [firstName, setFirstName] = useState("")
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-
+    const [firstName, setFirstName] = useState<string>("")
+    const [email, setEmail] = useState<string>("")
+    const [password, setPassword] = useState<string>("")
+    const [confirmPassword, setConfirmPassword] = useState<string>("")
     const navigate = useNavigate()
 
     const { register, 
@@ -53,7 +53,20 @@ export default function SignUp() {
     const onHandleSubmit = () => {
         
         console.log("Click")
-    }
+    };
+
+    const handleInputChangeFirstName: ChangeEventHandler<HTMLInputElement> = (event) => {
+        setFirstName(event.target.value);
+    };
+    const handleInputChangeEmail: ChangeEventHandler<HTMLInputElement> = (event) => {
+        setEmail(event.target.value);
+    };
+    const handleInputChangePassword: ChangeEventHandler<HTMLInputElement> = (event) => {
+        setPassword(event.target.value);
+    };
+    const handleInputChangeConfirmPassword: ChangeEventHandler<HTMLInputElement> = (event) => {
+        setConfirmPassword(event.target.value);
+    };
 
     const name = register("name")
     
@@ -65,6 +78,7 @@ export default function SignUp() {
                 <input 
                     {...register("name")}
                     type="text"
+                    onChange={(event) => handleInputChangeFirstName(event)}
                     placeholder="Full Name"
                     className={ errors.name ? "block peer rounded-[5px] w-[25rem] mt-5 border-[#C93B32] focus:outline-none focus:border-[#C93B32]  focus:ring-1 focus:ring-[#C93B32]" : "block peer rounded-[5px] mt-5 border-[#AEBBCD] w-[25rem] focus:outline-none focus:ring-1"}
                    />
@@ -74,6 +88,7 @@ export default function SignUp() {
 
                 <input
                     {...register("email")}
+                    onChange={(setEmail) => handleInputChangeEmail(setEmail)}
                     type="email"
                     placeholder="Email"
                     className={ errors.email ? "block peer rounded-[5px] w-[25rem]  mt-5 border-[#C93B32] focus:outline-none focus:border-[#C93B32]  focus:ring-1 focus:ring-[#C93B32]" : "block peer rounded-[5px] border-[#AEBBCD] w-[25rem] mt-5 focus:outline-none focus:ring-1"}
@@ -84,6 +99,7 @@ export default function SignUp() {
 
                 <input 
                     {...register("password")}
+                    onChange={(setPassword) => handleInputChangePassword(setPassword)}
                     type="password"
                     placeholder="Password"
                     className={ errors.password ? "block peer rounded-[5px] w-[25rem] mt-5 border-[#C93B32] focus:outline-none focus:border-[#C93B32]  focus:ring-1 focus:ring-[#C93B32]" : "block peer rounded-[5px] border-[#AEBBCD] w-[25rem] mt-5 focus:outline-none focus:ring-1"}
@@ -94,6 +110,7 @@ export default function SignUp() {
 
                 <input
                     {...register("confirmPassword")}
+                    onChange={(setConfirmPassword) => handleInputChangeConfirmPassword(setConfirmPassword)}
                     type="password"
                     placeholder="Retype the password"
                     className={ errors.confirmPassword ? "block peer rounded-[5px] w-[25rem] mt-5 border-[#C93B32] focus:outline-none focus:border-[#C93B32]  focus:ring-1 focus:ring-[#C93B32]" : "block peer rounded-[5px] border-[#AEBBCD] w-[25rem] mt-5 focus:outline-none focus:ring-1"}
