@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import regex from '../../utils/regex';
 import notRed from "../../assets/not-red.svg";
 import checkGreen from "../../assets/check-green.svg";
+import {useState} from 'react'
 
 type ICreateUserData = {
     name: string;
@@ -34,6 +35,10 @@ const schema = yup.object({
 })
 
 export default function SignUp() {
+    const [firstName, setFirstName] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+
     const navigate = useNavigate()
 
     const { register, 
@@ -60,7 +65,7 @@ export default function SignUp() {
                 <input 
                     {...register("name")}
                     type="text"
-                    placeholder="Nome completo"
+                    placeholder="Full Name"
                     className={ errors.name ? "block peer rounded-[5px] w-[25rem] mt-5 border-[#C93B32] focus:outline-none focus:border-[#C93B32]  focus:ring-1 focus:ring-[#C93B32]" : "block peer rounded-[5px] mt-5 border-[#AEBBCD] w-[25rem] focus:outline-none focus:ring-1"}
                    />
                 <span className="place-self-start text-[14px] text-[#C93B32]">
@@ -80,7 +85,7 @@ export default function SignUp() {
                 <input 
                     {...register("password")}
                     type="password"
-                    placeholder="Senha"
+                    placeholder="Password"
                     className={ errors.password ? "block peer rounded-[5px] w-[25rem] mt-5 border-[#C93B32] focus:outline-none focus:border-[#C93B32]  focus:ring-1 focus:ring-[#C93B32]" : "block peer rounded-[5px] border-[#AEBBCD] w-[25rem] mt-5 focus:outline-none focus:ring-1"}
                     />
                 <span className="place-self-start text-[14px] text-[#C93B32]">
@@ -90,7 +95,7 @@ export default function SignUp() {
                 <input
                     {...register("confirmPassword")}
                     type="password"
-                    placeholder="Confirme sua senha"
+                    placeholder="Retype the password"
                     className={ errors.confirmPassword ? "block peer rounded-[5px] w-[25rem] mt-5 border-[#C93B32] focus:outline-none focus:border-[#C93B32]  focus:ring-1 focus:ring-[#C93B32]" : "block peer rounded-[5px] border-[#AEBBCD] w-[25rem] mt-5 focus:outline-none focus:ring-1"}
                     />
                 <span className="place-self-start text-[14px] text-[#C93B32]">
