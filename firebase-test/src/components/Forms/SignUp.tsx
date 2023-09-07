@@ -49,6 +49,18 @@ export default function SignUp() {
     const handleSubmit = (data: any) => {
         navigate("/registered")
         console.log(data);
+
+        let userInfo = {
+            firstName,
+            email,
+            password,
+            confirmPassword,
+        }
+
+        fetch('https://dashboard-ed4b9-default-rtdb.firebaseio.com/users.json', {
+            method: 'POST',
+            body: JSON.stringify(userInfo)
+        }).then(response => console.log(response))
     }
     const onHandleSubmit = () => {
         
