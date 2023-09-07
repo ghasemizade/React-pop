@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useRouteError, useNavigate } from "react-router-dom";
 
 export default function Registered() {
@@ -6,8 +7,11 @@ export default function Registered() {
 
   const navigate = useNavigate()
   const onHandleSubmit = () => {
-    navigate("/")
+    navigate("/show")
   }
+
+  
+
   return (
     
     <div className="flex flex-col items-center py-[30vh]">
